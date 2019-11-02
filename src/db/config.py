@@ -1,6 +1,7 @@
 import os
+from orator import DatabaseManager
 
-DATABASES = {
+config = {
     'mysql': {
         'driver': 'mysql',
         'host': os.getenv('DB_HOST'),
@@ -9,3 +10,5 @@ DATABASES = {
         'password': os.getenv('DB_PASSWD')
     }
 }
+
+db = DatabaseManager(config)
