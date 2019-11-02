@@ -1,7 +1,7 @@
 import os
-from orator import DatabaseManager
+from orator import DatabaseManager, Schema
 
-config = {
+DATABASES = {
     'mysql': {
         'driver': 'mysql',
         'host': os.getenv('DB_HOST'),
@@ -11,4 +11,5 @@ config = {
     }
 }
 
-db = DatabaseManager(config)
+db = DatabaseManager(DATABASES)
+schema = Schema(db)
