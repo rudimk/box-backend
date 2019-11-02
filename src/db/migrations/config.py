@@ -1,4 +1,5 @@
 import os
+from orator import DatabaseManager
 
 DATABASES = {
     'mysql': {
@@ -9,3 +10,6 @@ DATABASES = {
         'password': os.getenv('DB_PASSWD')
     }
 }
+
+db = DatabaseManager(config)
+schema = Schema(db)
