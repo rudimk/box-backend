@@ -9,6 +9,7 @@ verify_ssl = true
 orator = "*"
 sanic = "*"
 pymysql = "*"
+Sanic-Cors = "*"
 
 [requires]
 python_version = "3.7"
