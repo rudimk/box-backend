@@ -29,6 +29,13 @@ async def createCredentials(request):
 	return json({'success': True, 'id': newCredentials})
 
 
+# PATCH /credentials/<credential_id>
+@app.patch('/credentials/<credential_id>')
+async def modifyCredentialbyID(request, credential_id):
+	updateBody = request.json
+	updatedCredentials = db.table('credentials').where('id', int(credential_id)).update(updateBody)
+	return json({'success': True, 'id': int(credential_id)})
+
 
 
 if __name__ == '__main__':
