@@ -37,6 +37,12 @@ async def modifyCredentialbyID(request, credential_id):
 	return json({'success': True, 'id': int(credential_id)})
 
 
+# DELETE /credentials/<credential_id>
+@app.delete('/credentials/<credential_id>')
+async def deleteCredentialsByID(request, credential_id):
+	deleteCredentials = db.table('credentials').where('id', int(credential_id)).delete()
+	return json({'success': True})
+
 
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=8888)
