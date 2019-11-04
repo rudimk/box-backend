@@ -14,6 +14,13 @@ async def getCredentials(request):
 	return json(credentials)
 
 
+# GET /credentials/<credential_id>
+@app.get('/credentials/<credential_id>')
+async def getCredentialByID(request, credential_id):
+	credential = db.table('credentials').where('id', int(credential_id)).first()
+	return json(credential)
+
+
 # POST /credentials
 @app.post('/credentials')
 async def createCredentials(request):
